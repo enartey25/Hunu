@@ -1,0 +1,96 @@
+<template>
+  <style>
+    @font-face { font-family: "Hind"; font-weight: 400; src: url("assets/fonts/hind-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 400; src: url("assets/fonts/hind-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 500; src: url("assets/fonts/hind-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 500; src: url("assets/fonts/hind-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 600; src: url("assets/fonts/hind-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 600; src: url("assets/fonts/hind-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 700; src: url("assets/fonts/hind-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 700; src: url("assets/fonts/hind-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Hind", sans-serif; font-variant-numeric: tabular-nums; color: var(--color-ink); line-height: 1.1; }
+    #root { background: var(--color-ground); }
+    .s5-title { position: absolute; left: 108px; top: 196px; width: 864px; font-weight: 700; font-size: 112px; letter-spacing: -0.02em; line-height: 1; }
+    .s5-bar { position: absolute; left: 54px; right: 54px; height: 110px; background: var(--color-ink); color: #fff; border-radius: 10px 10px 0 0; display: flex; align-items: center; padding: 0 36px; font-weight: 600; font-size: 44px; }
+    .s5-grid { position: absolute; left: 54px; right: 54px; background: var(--color-panel); border: 3px solid var(--color-rule); border-top: 0; display: grid; grid-template-columns: 216px 1fr 1fr 1fr; }
+    .s5-grid > div { padding: 22px 20px; border-top: 3px solid var(--color-rule); border-left: 3px solid var(--color-rule); font-weight: 500; font-size: 30px; line-height: 1.2; }
+    .s5-grid > div.l { border-left: 0; font-weight: 600; font-size: 30px; color: var(--color-ink-2); background: var(--color-ground); display: flex; align-items: center; }
+    .s5-grid b { display: block; font-weight: 700; font-size: 46px; }
+    .s5-grid small { display: block; font-size: 28px; color: var(--color-mute); margin-top: 4px; }
+    .s5-grid .hot { background: var(--color-sign-tint); }
+    .s5-grid .hot b { font-size: 60px; letter-spacing: -0.02em; }
+    .s5-grid .bad { color: var(--color-bad); }
+    .s5-grid .good { color: var(--color-good); }
+    .s5-grid .sc b { font-size: 120px; line-height: 0.95; letter-spacing: -0.03em; }
+    .s5-grid .sc b span { font-weight: 500; font-size: 34px; letter-spacing: 0; color: var(--color-mute); }
+    .s5-badge { display: inline-block; margin-top: 12px; background: var(--color-sign); font-weight: 700; font-size: 32px; padding: 8px 16px; border-radius: 6px; }
+    .s5-why { position: absolute; left: 54px; right: 54px; top: 850px; height: 460px; background: var(--color-ink); color: #fff; border-radius: 10px; padding: 36px 40px; }
+    .s5-why h3 { font-weight: 600; font-size: 42px; margin: 0 0 6px; }
+    .s5-why p { font-weight: 500; font-size: 34px; color: #d8d5cc; margin: 0 0 30px; }
+    .s5-row { display: grid; grid-template-columns: 200px 1fr 80px; align-items: center; gap: 20px; font-weight: 600; font-size: 36px; height: 62px; }
+    .s5-row i { display: block; height: 28px; background: #4a4a45; border-radius: 4px; overflow: hidden; }
+    .s5-row i u { display: block; height: 100%; background: var(--color-sign); }
+    .s5-row span:last-child { text-align: right; }
+    .s5-deco { position: absolute; left: 0; right: 0; top: 1400px; bottom: 0; background: var(--color-sign); }
+    .s5-deco span { position: absolute; left: 50px; top: -30px; font-weight: 700; font-size: 560px; line-height: 1; letter-spacing: -0.04em; color: var(--color-sign-deep); }
+    .s5-title .w { display: inline-block; }
+    .s5-grid .n { font-style: normal; }
+    .s5-badge { transform-origin: 0 50%; }
+    .s5-morph { position: absolute; left: 54px; right: 54px; top: 850px; height: 460px; background: var(--color-ink); border-radius: 10px; }
+    /* TikTok safe-area layout */
+    .s5-title { left: 120px; top: 290px; width: 840px; font-size: 96px;  }
+    .s5-grid { left: 110px; right: auto; width: 690px; grid-template-columns: 124px 1fr 1fr 1fr; }
+    .s5-grid > div { padding: 16px 14px; font-size: 28px; }
+    .s5-grid > div.l { font-size: 28px; padding-left: 12px; }
+    .s5-grid small { font-size: 28px; }
+    .s5-grid .sc b { font-size: 92px; }
+    .s5-grid .sc b span { font-size: 28px; }
+    .s5-badge { font-size: 28px; padding: 6px 12px; }
+    .s5-why { left: 110px; right: auto; width: 690px; top: 730px; height: 520px; padding: 30px 34px; }
+    .s5-why h3 { font-size: 40px; }
+    .s5-why p { font-size: 32px; line-height: 1.25; margin: 6px 0 26px; }
+    .s5-row { grid-template-columns: 170px 1fr 70px; font-size: 34px; height: 64px; }
+    .s5-morph { left: 110px; right: auto; width: 690px; top: 730px; height: 520px; }
+  </style>
+  <div id="root" data-composition-id="s5-score" data-width="1080" data-height="1920">
+    <div id="s5-clip" class="clip" data-start="0" data-duration="4.6" style="position:absolute;inset:0">
+    <div id="s5-stage" style="position:absolute;inset:0">
+    <div id="s5-title" class="s5-title"><span class="w">Yes,</span> <span class="w">it</span> <span class="w">shows</span> <span class="w">its</span> <span class="w">working</span></div>
+    <div id="s5-grid" class="s5-grid" style="top: 500px; border-top: 3px solid var(--color-rule); border-radius: 10px;">
+      <div class="l" style="border-top:0">Value score</div>
+      <div class="sc hot" style="border-top:0"><b><i class="n" data-n="87">87</i><span> /100</span></b><span id="s5-badge" class="s5-badge">Best value</span></div>
+      <div class="sc" style="border-top:0"><b><i class="n" data-n="87">87</i><span> /100</span></b><small>Seller B</small></div>
+      <div class="sc" style="border-top:0"><b><i class="n" data-n="72">72</i><span> /100</span></b><small>This page</small></div>
+    </div>
+    <div id="s5-morph" class="s5-morph"></div>
+    <div id="s5-why" class="s5-why">
+      <h3>Why Seller A ranks first</h3>
+      <p>68% below the typical price of 16 offers found</p>
+      <div class="s5-row"><span>Price</span><i><u style="width:100%"></u></i><span>100</span></div>
+      <div class="s5-row"><span>Proximity</span><i><u style="width:88%"></u></i><span>88</span></div>
+      <div class="s5-row"><span>Fit</span><i><u style="width:75%"></u></i><span>75</span></div>
+      <div class="s5-row"><span>Quality</span><i><u style="width:50%"></u></i><span>50</span></div>
+    </div>
+    <div class="s5-deco" data-layout-ignore><span>87</span></div>
+  </div>
+    </div>
+  </div>
+  <script>
+    // The scene is authored at full speed on `tl`, then played at 0.72x inside the paused root.
+    const root = gsap.timeline({ paused: true });
+    const tl = gsap.timeline();
+    const ease = (p) => 1 - Math.pow(1 - Math.min(1, Math.max(0, p)), 3);
+    const count = (t, t0, d, a, b) => Math.round(a + (b - a) * ease((t - t0) / d));
+    const nums = [...document.querySelectorAll("#s5-grid .n")];
+    tl.eventCallback("onUpdate", () => { nums.forEach((n, i) => { n.textContent = count(tl.time(), 0.35 + i * 0.08, 0.7, 0, +n.dataset.n); }); });
+    tl.fromTo("#s5-stage", { scale: 0.82, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.32, ease: "power3.out" }, 0);
+    tl.fromTo("#s5-title .w", { color: "#b9b5a8" }, { color: "#111111", duration: 0.1, stagger: 0.08, ease: "none" }, 0.28);
+    tl.fromTo("#s5-badge", { scale: 0 }, { scale: 1, duration: 0.32, ease: "back.out(2)" }, 1.1);
+    tl.fromTo("#s5-why, #s5-morph", { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 0.32, ease: "power3.out" }, 0.95);
+    tl.fromTo("#s5-why .s5-row u", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.5, ease: "expo.out", stagger: 0.08 }, 1.2);
+    tl.to("#s5-why > *, #s5-title, #s5-grid", { opacity: 0, duration: 0.15 }, 2.92);
+    tl.fromTo("#s5-morph", { scaleX: 1, scaleY: 1, transformOrigin: "137px 495.4px" }, { scaleX: 1.4087, scaleY: 1.4038, duration: 0.33, ease: "power2.inOut", immediateRender: false }, 2.95);
+    root.add(tl.timeScale(0.72), 0);
+    window.__timelines["s5-score"] = root;
+  </script>
+</template>

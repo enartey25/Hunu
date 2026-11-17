@@ -1,0 +1,87 @@
+<template>
+  <style>
+    @font-face { font-family: "Hind"; font-weight: 400; src: url("assets/fonts/hind-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 400; src: url("assets/fonts/hind-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 500; src: url("assets/fonts/hind-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 500; src: url("assets/fonts/hind-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 600; src: url("assets/fonts/hind-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 600; src: url("assets/fonts/hind-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 700; src: url("assets/fonts/hind-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 700; src: url("assets/fonts/hind-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Hind", sans-serif; font-variant-numeric: tabular-nums; color: var(--color-ink); line-height: 1.1; }
+    #root { background: var(--color-ground); }
+    .s4-top { position: absolute; left: 0; right: 0; top: 0; height: 470px; background: var(--color-sign); }
+    .s4-title { position: absolute; left: 108px; top: 196px; width: 864px; font-weight: 700; font-size: 100px; letter-spacing: -0.02em; line-height: 1; }
+    .s4-bar { position: absolute; left: 54px; right: 54px; height: 110px; background: var(--color-ink); color: #fff; border-radius: 10px 10px 0 0; display: flex; align-items: center; padding: 0 36px; font-weight: 600; font-size: 44px; }
+    .s4-grid { position: absolute; left: 54px; right: 54px; background: var(--color-panel); border: 3px solid var(--color-rule); border-top: 0; display: grid; grid-template-columns: 216px 1fr 1fr 1fr; }
+    .s4-grid > div { padding: 22px 20px; border-top: 3px solid var(--color-rule); border-left: 3px solid var(--color-rule); font-weight: 500; font-size: 30px; line-height: 1.2; }
+    .s4-grid > div.l { border-left: 0; font-weight: 600; font-size: 30px; color: var(--color-ink-2); background: var(--color-ground); display: flex; align-items: center; }
+    .s4-grid b { display: block; font-weight: 700; font-size: 46px; }
+    .s4-grid small { display: block; font-size: 28px; color: var(--color-mute); margin-top: 4px; }
+    .s4-grid .hot { background: var(--color-sign-tint); }
+    .s4-grid .hot b { font-size: 60px; letter-spacing: -0.02em; }
+    .s4-grid .bad { color: var(--color-bad); }
+    .s4-grid .good { color: var(--color-good); }
+    .s4-grid .me { background: #f7f5ef; }
+    .s4-foot { position: absolute; left: 54px; right: 54px; top: 1400px; }
+    .s4-foot i { display: block; height: 150px; margin-bottom: 24px; background: var(--color-panel); border-radius: 10px; }
+    .s4-title .w { display: inline-block; }
+    .s4-bar { top: 420px; height: 890px; display: block; padding: 0; border-radius: 0; }
+    .s4-bar span { position: absolute; left: 36px; top: 100px; height: 110px; display: flex; align-items: center; }
+    .s4-grid b { transform-origin: 0 50%; }
+    /* TikTok safe-area layout */
+    .s4-top { height: 480px; }
+    .s4-title { left: 120px; top: 290px; width: 840px; font-size: 88px;  }
+    .s4-bar { left: 54px; right: 54px; top: 390px; height: 800px; }
+    .s4-bar span { left: 84px; top: 106px; height: 84px; font-size: 38px; }
+    .s4-grid { left: 110px; right: auto; width: 690px; grid-template-columns: 124px 1fr 1fr 1fr; }
+    .s4-grid > div { padding: 24px 12px; font-size: 28px; }
+    .s4-grid > div.l { font-size: 28px; }
+    .s4-grid b { font-size: 38px; }
+    .s4-grid small { font-size: 28px; }
+    .s4-grid .hot b { font-size: 42px; }
+    .s4-grid .r3 b { font-size: 34px; }
+    .s4-grid > div.l { padding: 24px 8px 24px 12px; }
+  </style>
+  <div id="root" data-composition-id="s4-matrix" data-width="1080" data-height="1920">
+    <div id="s4-clip" class="clip" data-start="0" data-duration="5.55" style="position:absolute;inset:0">
+    <div id="s4-stage" style="position:absolute;inset:0">
+    <div class="s4-top" data-layout-ignore></div>
+    <div id="s4-title" class="s4-title"><span class="w">The</span> <span class="w">grass</span> <span class="w">is</span> <span class="w">greener</span> <span class="w">on</span> <span class="w">the</span> <span class="w">other</span> <span class="w">tab</span></div>
+    <div id="s4-bar" class="s4-bar" ><span>Comparing 3 deals</span></div>
+    <div id="s4-grid" class="s4-grid" style="top: 580px">
+      <div class="l r1">Seller</div>
+      <div class="r1"><b style="font-size:32px">Seller A</b><small>Kumasi</small></div>
+      <div class="r1"><b style="font-size:32px">Seller B</b><small>Accra</small></div>
+      <div class="me r1"><b style="font-size:32px">This page</b><small>Overseas</small></div>
+      <div class="l r2">Price</div>
+      <div class="r2"><b>GH₵100</b></div><div class="r2"><b>GH₵120</b></div><div class="me r2"><b>GH₵117</b></div>
+      <div class="l r3">Shipping</div>
+      <div class="r3"><b class="good">+GH₵53</b><small>1-2 days</small></div>
+      <div class="r3"><b class="good">+GH₵53</b><small>1-2 days</small></div>
+      <div class="me r3"><b class="bad">+GH₵282</b><small>3-5 days</small></div>
+      <div class="l hot r4">Total landed cost</div>
+      <div class="hot r4"><b>GH₵153</b></div><div class="hot r4"><b>GH₵173</b></div><div class="hot r4"><b class="bad">GH₵399</b></div>
+    </div>
+    <div class="s4-foot" data-layout-ignore><i></i><i></i><i></i></div>
+  </div>
+    </div>
+  </div>
+  <script>
+    // The scene is authored at full speed on `tl`, then played at 0.72x inside the paused root.
+    const root = gsap.timeline({ paused: true });
+    const tl = gsap.timeline();
+    tl.fromTo("#s4-bar", { clipPath: "inset(0px 0px 0px 0px round 12px)" }, { clipPath: "inset(106px 226px 610px 56px round 10px)", duration: 0.42, ease: "power3.inOut" }, 0);
+    tl.fromTo("#s4-bar span", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+    tl.fromTo("#s4-title .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, stagger: 0.06 }, 0.1);
+    tl.fromTo("#s4-grid", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+    tl.fromTo("#s4-grid .r1", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.05 }, 0.55);
+    tl.fromTo("#s4-grid .r2", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.05 }, 1.3);
+    tl.fromTo("#s4-grid .r3", { opacity: 0 }, { opacity: 1, duration: 0.2, stagger: 0.05 }, 1.9);
+    tl.fromTo("#s4-grid .r4", { opacity: 0 }, { opacity: 1, duration: 0.15, stagger: 0.08 }, 2.6);
+    tl.fromTo("#s4-grid .r4 b", { scale: 1.4 }, { scale: 1, duration: 0.4, ease: "expo.out", stagger: 0.08 }, 2.6);
+    tl.to("#s4-stage", { scale: 1.3, opacity: 0, filter: "blur(10px)", duration: 0.28, ease: "power3.in" }, 3.72);
+    root.add(tl.timeScale(0.72), 0);
+    window.__timelines["s4-matrix"] = root;
+  </script>
+</template>

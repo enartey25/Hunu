@@ -1,0 +1,78 @@
+<template>
+  <style>
+    @font-face { font-family: "Hind"; font-weight: 400; src: url("assets/fonts/hind-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 400; src: url("assets/fonts/hind-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 500; src: url("assets/fonts/hind-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 500; src: url("assets/fonts/hind-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 600; src: url("assets/fonts/hind-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 600; src: url("assets/fonts/hind-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    @font-face { font-family: "Hind"; font-weight: 700; src: url("assets/fonts/hind-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Hind"; font-weight: 700; src: url("assets/fonts/hind-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113; }
+    #root { position: absolute; inset: 0; overflow: hidden; font-family: "Hind", sans-serif; font-variant-numeric: tabular-nums; color: var(--color-ink); line-height: 1.1; }
+    #root { background: var(--color-ground); }
+    .s2-head { position: absolute; left: 0; right: 0; top: 0; height: 330px; background: var(--color-sign); }
+    .s2-brand { position: absolute; left: 60px; top: 196px; font-weight: 700; font-size: 84px; letter-spacing: -0.02em; }
+    .s2-loc { position: absolute; right: 60px; top: 200px; display: flex; align-items: center; gap: 18px; font-weight: 600; font-size: 34px; line-height: 1.15; }
+    .s2-loc i { display: grid; place-items: center; width: 68px; height: 68px; background: var(--color-ink); border-radius: 8px; }
+    .s2-loc small { display: block; font-weight: 400; font-size: 30px; color: var(--color-on-sign); }
+    .s2-title { position: absolute; left: 108px; top: 400px; width: 864px; font-weight: 700; font-size: 124px; letter-spacing: -0.02em; line-height: 0.98; }
+    .s2-band { position: absolute; left: 54px; right: 54px; top: 730px; height: 560px; background: var(--color-panel); border: 6px solid var(--color-ink); border-radius: 12px; padding: 40px; }
+    .s2-pic { position: absolute; left: 40px; top: 40px; width: 84px; height: 84px; background: var(--color-ink); border-radius: 8px; display: grid; place-items: center; }
+    .s2-name { position: absolute; left: 156px; right: 40px; top: 34px; font-weight: 600; font-size: 54px; line-height: 1.1; }
+    .s2-meta { position: absolute; left: 156px; right: 40px; top: 170px; font-weight: 500; font-size: 38px; color: var(--color-mute); line-height: 1.25; }
+    .s2-meta b { color: var(--color-ink); font-weight: 700; }
+    .s2-go { position: absolute; left: 40px; right: 40px; bottom: 40px; height: 170px; background: var(--color-ink); color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; gap: 22px; font-weight: 700; font-size: 68px; }
+    .s2-sheet { position: absolute; left: 54px; right: 54px; top: 1400px; }
+    .s2-sheet i { display: block; height: 150px; margin-bottom: 24px; background: var(--color-panel); border-radius: 10px; }
+    .s2-title .w, .s3-head .w { display: inline-block; }
+    .s2-morph { position: absolute; left: -6px; right: -6px; top: -6px; bottom: -6px; background: var(--color-ink); border-radius: 12px; }
+    .s2-go { z-index: 2; }
+    /* TikTok safe-area layout */
+    .s2-head { height: 370px; }
+    .s2-brand { left: 120px; top: 262px; }
+    .s2-loc { right: 120px; top: 266px; }
+    .s2-title { left: 120px; top: 420px; width: 840px; font-size: 112px; }
+    .s2-band { top: 690px; height: 570px; }
+    .s2-pic { left: 60px; top: 34px; }
+    .s2-name { left: 170px; right: 60px; top: 30px; font-size: 52px; }
+    .s2-meta { left: 170px; top: 100px; font-size: 36px; }
+    .s2-go { justify-content: flex-start; padding-left: 32px; font-size: 64px; }
+    .cur { z-index: 5; }
+  </style>
+  <div id="root" data-composition-id="s2-open" data-width="1080" data-height="1920">
+    <div id="s2-clip" class="clip" data-start="0" data-duration="3.35" style="position:absolute;inset:0">
+    <div id="s2-stage" style="position:absolute;inset:0">
+    <div id="s2-head" class="s2-head">
+      <div class="s2-brand">Hunu</div>
+      <div class="s2-loc"><i><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></i><div>Accra, Ghana<small>University of Ghana</small></div></div>
+    </div>
+    <div id="s2-title" class="s2-title"><span class="w">Get</span> <span class="w">a</span> <span class="w">second</span> <span class="w">opinion</span> <span class="w">first</span></div>
+    <div id="s2-band" class="s2-band">
+      <div class="s2-pic"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="#fff"/></svg></div>
+      <div class="s2-name">ESP32 Development Board</div>
+      <div class="s2-meta">On this page · <b>$9.97</b></div>
+      <div id="s2-morph" class="s2-morph"></div>
+      <div id="s2-go" class="s2-go"><span id="s2-go-t" style="display:flex;align-items:center;gap:22px">Rank this deal <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+    </div>
+<svg id="s2-cursor" class="cur" style="position:absolute;left:600px;top:1125px;width:120px;height:120px" viewBox="0 0 24 24"><path d="M4 2l15 9.5-7 1.2L8.6 20z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <div class="s2-sheet" data-layout-ignore><i></i><i></i><i></i></div>
+  </div>
+    </div>
+  </div>
+  <script>
+    // The scene is authored at full speed on `tl`, then played at 0.72x inside the paused root.
+    const root = gsap.timeline({ paused: true });
+    const tl = gsap.timeline();
+    tl.fromTo("#s2-stage", { x: 1080 }, { x: 0, duration: 0.42, ease: "power3.out" }, 0);
+    tl.fromTo("#s2-title .w", { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, stagger: 0.07 }, 0.3);
+    tl.fromTo("#s2-cursor", { x: -330, y: -430 }, { x: 0, y: 0, duration: 0.6, ease: "power2.inOut" }, 0.9);
+    tl.to("#s2-go", { scale: 0.95, duration: 0.07, ease: "power2.in" }, 1.6);
+    tl.to("#s2-go", { scale: 1, duration: 0.18, ease: "power3.out" }, 1.67);
+    tl.to("#s2-cursor", { opacity: 0, duration: 0.12 }, 1.92);
+    tl.fromTo("#s2-morph", { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.36, ease: "power2.inOut" }, 1.95);
+    tl.to("#s2-go-t", { opacity: 0, duration: 0.15 }, 2.1);
+    tl.to("#s2-title", { opacity: 0, filter: "blur(8px)", duration: 0.18 }, 2.15);
+    root.add(tl.timeScale(0.72), 0);
+    window.__timelines["s2-open"] = root;
+  </script>
+</template>

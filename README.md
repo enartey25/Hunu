@@ -154,5 +154,3 @@ Pre-configured across 8 core B2B categories with realistic commercial pricing, l
 - **Cybersecurity**: Arctic Wolf Managed SOC, Vanta Continuous Compliance
 - **B2B Marketing & Sales**: Cognism Lead Intelligence, Directive Performance Agency
 - **Facilities & Ops**: JLL Corporate Workspace Ops, Regus Commercial Flex Suites
-
-# Hunu

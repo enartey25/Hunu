@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-web/
+server/.build/
+tiktok-ad/renders/
+.env
+.env.*
+*.log
+.DS_Store
+tiktok-ad/.waveform-cache/
+tiktok-ad/.hyperframes/preview/
+.impeccable/hook.cache.json
