@@ -1,4 +1,27 @@
-# Hunu — B2B, Supply Chain & Student Value Sourcing Engine
+<!-- readme-art:start -->
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/hero-dark.svg">
+  <img src="assets/readme/hero-light.svg" width="100%" alt="Hunu: One search, many shops: compares offers across Jumia, Jiji, AliExpress, Amazon and nearby stores, then ranks the real deals.">
+</picture>
+
+<img src="https://img.shields.io/badge/status-building-f2b705?style=for-the-badge&labelColor=0e1a12" alt="status: building"> <img src="https://img.shields.io/badge/platform-Manifest%20V3-f2b705?style=for-the-badge&labelColor=0e1a12" alt="platform: Manifest V3"> <img src="https://img.shields.io/badge/maps-OpenStreetMap-f2b705?style=for-the-badge&labelColor=0e1a12" alt="maps: OpenStreetMap">
+
+</div>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/stats-dark.svg">
+  <img src="assets/readme/stats-light.svg" width="100%" alt="6+ shops searched at once; MV3 Chrome extension manifest; 0 servers needed to search">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/flow-dark.svg">
+  <img src="assets/readme/flow-light.svg" width="100%" alt="How it works: Parse → Fetch → Normalise → Rank → Show">
+</picture>
+
+<p align="center"><img src="https://skillicons.dev/icons?i=ts,vite,nodejs,postgres&theme=dark" alt="Built with: ts, vite, nodejs, postgres"></p>
+<!-- readme-art:end -->
 
 Hunu is an enterprise-grade and academic browser extension (Manifest V3) engineered to source, evaluate, and rank:
 1. **Student Deals & Academic Lab Sourcing**: Verified student flights, campus food savings, academic software packs (GitHub, Notion, JetBrains), and electronic components for lab work (microcontrollers, PCBs, semiconductors via DigiKey, Mouser, JLCPCB, Adafruit).
